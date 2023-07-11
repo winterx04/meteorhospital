@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <title>Appointment & Enquiry</title>
+        <meta name="description" content="Schedule an appointment at Meteor Hospital conveniently with our online appointment form. Book a consultation with our experienced doctors in cardiology, neurology, orthopedics, and more. Our streamlined appointment process ensures efficient and personalized healthcare. Take the first step towards better health by scheduling an appointment at Meteor Hospital today.">
+        <meta name="keywords" content="Meteor Hospital, hospital, medical services, healthcare, appointment booking, doctor consultation, health screening, book an appointment">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="ASSIGNMENT2.css">
+        <link rel="icon" type="image/x-icon" href="meteor.ico">
+        <script src="https://kit.fontawesome.com/0e22e4bdcf.js" crossorigin="anonymous"></script>
+        
+        <script>
+            function showError(elementId, errorMessage) {
+                const errorElement = document.getElementById(elementId);
+                errorElement.innerHTML = errorMessage;
+                errorElement.style.display = "block";
+            }
+          
+            function hideError(elementId) {
+                const errorElement = document.getElementById(elementId);
+                errorElement.innerHTML = "";
+                errorElement.style.display = "gray";
+            }
+          
+            function validateForm() {
+                const date = document.getElementById("datepicker").value;
+                const time = document.getElementById("time").value;
+                const name = document.forms["form"]["fullname"].value;
+                const dob = document.forms["form"]["DOBpicker"].value;
+                const ic = document.forms["form"]["ic"].value;
+                const email = document.forms["form"]["email"].value;
+                const num = document.forms["form"]["num"].value;
+                const currentDate = new Date();
+            
+                const errorFields = {
+                    date: { elementId: "dateError", message: "Please select a date." },
+                    time: { elementId: "timeError", message: "Please select a time slot." },
+                    name: { elementId: "nameError", message: "Please enter your name." },
+                    dob: { elementId: "dobError", message: "Please select your birth date." },
+                    ic: { elementId: "icError", message: "Please enter patient's IC number." },
+                    email: { elementId: "emailError", message: "Please enter your email." },
+                    num: { elementId: "numError", message: "Please enter your contact number." }
+                };
+          
+                for (const field in errorFields) {
+                    hideError(errorFields[field].elementId);
+                }
+          
+                let hasError = false; // Track if any empty field is found
+
+                if (num.trim() === "") {
+                    showError("numError", errorFields.num.message);
+                    document.getElementById("num").style.border = "2px solid red";
+                    document.getElementById("patient-div").scrollIntoView();
+                    hasError = true;
+                } else {
+                    const numPattern = /^\d+$/;
+                        if (!numPattern.test(num)) {
+                            showError("numError", "Contact number must contain only numbers.");
+                            document.getElementById("num").style.border = "2px solid red";
+                            document.getElementById("patient-div").scrollIntoView();
+                            hasError = true;
+                        } else {
+                            const numPattern2 = /^(01\d{8}|01\d{9})$/;
+                                if (!numPattern2.test(num)) {
+                                    showError("numError", "Contact number must contain 10 or 11 digits. (Ex: 0123456789)");
+                                    document.getElementById("num").style.border = "2px solid red";
+                                    document.getElementById("patient-div").scrollIntoView();
+                                    hasError = true;
+                                } else {
+                                    document.getElementById("num").style.border = "1px solid gray";
+                                }
+                        }
+                }
+
+                if (email.trim() === "") {
+                    showError("emailError", errorFields.email.message);
+                    document.getElementById("email").style.border = "2px solid red";
+                    document.getElementById("patient-div").scrollIntoView();
+                    hasError = true;
+                } else {
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailPattern.test(email)) {
+                            showError("emailError", "Please enter a valid email address.");
+                            document.getElementById("email").style.border = "2px solid red";
+                            document.getElementById("patient-div").scrollIntoView();
+                            hasError = true;
+                        } else {
+                            document.getElementById("email").style.border = "1px solid gray";
+                        }
+                }
+
+                if (ic.trim() === "") {
+                    showError("icError", errorFields.ic.message);
+                    document.getElementById("ic").style.border = "2px solid red";
+                    document.getElementById("patient-div").scrollIntoView();
+                    hasError = true;
+                } else {
+                    const icPattern = /^\d{12}$/;
+                        if (!icPattern.test(ic)) {
+                            showError("icError", "Please enter a valid 12-digit NRIC (numbers only).");
+                            document.getElementById("ic").style.border = "2px solid red";
+                            document.getElementById("patient-div").scrollIntoView();
+                            hasError = true;
+                        } else {
+                            document.getElementById("ic").style.border = "1px solid gray";
+                        }
+                }
+
+                if (dob.trim() === "") {
+                    showError("dobError", errorFields.dob.message);
+                    document.getElementById("DOBpicker").style.border = "2px solid red";
+                    document.getElementById("patient-div").scrollIntoView();
+                    hasError = true;
+                } else {
+                    const selectedDOB = new Date(dob);
+                        if (selectedDOB >= currentDate) {
+                            showError("dobError", "Please select a valid date of birth.");
+                            document.getElementById("patient-div").scrollIntoView();
+                            document.getElementById("DOBpicker").style.border = "2px solid red";
+                            hasError = true;
+                        } else {
+                            document.getElementById("DOBpicker").style.border = "1px solid gray";
+                        }
+                }
+
+                if (name.trim() === "") {
+                    showError("nameError", errorFields.name.message);
+                    document.getElementById("fullname").style.border = "2px solid red";
+                    document.getElementById("patient-div").scrollIntoView();
+                    hasError = true;
+                } else {
+                    const namePattern = /^[a-zA-Z\s]+$/;
+                        if (!namePattern.test(name)) {
+                            showError("nameError", "Patient's name must contain only characters.");
+                            document.getElementById("fullname").style.border = "2px solid red";
+                            document.getElementById("patient-div").scrollIntoView();
+                            hasError = true;
+                        } else {
+                            document.getElementById("fullname").style.border = "1px solid gray";
+                        }
+                }
+
+                if (time === "") {
+                    showError("timeError", errorFields.time.message);
+                    document.getElementById("time").style.border = "2px solid red";
+                    document.getElementById("scroll-to-fourth-row").scrollIntoView();
+                    hasError = true;
+                } else {
+                    document.getElementById("time").style.border = "1px solid gray";
+                }
+
+                if (date.trim() === "") {
+                    showError("dateError", errorFields.date.message);
+                    document.getElementById("datepicker").style.border = "2px solid red";
+                    document.getElementById("scroll-to-fourth-row").scrollIntoView();
+                    hasError = true;
+                } else {
+                    const selectedDate = new Date(date);
+                        if (selectedDate <= currentDate) {
+                            showError("dateError", errorFields.date.message);
+                            document.getElementById("datepicker").style.border = "2px solid red";
+                            document.getElementById("scroll-to-fourth-row").scrollIntoView();
+                            hasError = true;
+                        } else {
+                            document.getElementById("datepicker").style.border = "1px solid gray";
+                        }
+                }
+            
+              return !hasError;
+            }
+          
+            function confirmSubmit() {
+                const isValid = validateForm();
+                if (isValid) {
+                    const confirmed = confirm("Are you sure you want to submit the form?");
+                    if (confirmed) {
+                        alert("You have successfully submitted the form.");
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+        </script> 
+          
+    </head>
+
+    <body>
+        <nav>
+            <div class="header">
+                <div class="navigation-toggle"></div>
+                <div class="logo">
+                    <a href="index.html">
+                    <img src="meteor_logo.png" alt="Hospital Logo">
+                    </a>
+                </div>
+
+                <ul class="navigation">
+                    <li><a href="index.html#aboutus">ABOUT US</a></li> 
+                    <li><a href="find-doctor.html">FIND A DOCTOR</a></li> 
+                    <li><a href="enquiry.html">ENQUIRY</a></li> 
+                    <li><a href="health_hub.html">HEALTH HUB</a></li> 
+                    <li><a href="#contactus">CONTACT US</a></li> 
+                </ul>
+
+                <ul class="make-appointment">
+                    <li><a href="doctor_appointment.html">MAKE APPOINTMENT</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <script>
+            window.addEventListener("scroll", function() {
+                var nav = document.querySelector("nav");
+                if (window.scrollY > 0) {
+                    nav.classList.add("scrolled");
+                } else {
+                    nav.classList.remove("scrolled");
+                }
+            });
+        </script>
+
+        <!-- Banner Part -->
+        <div class="banner">
+            <div class="breadcrumb-div">
+                <p>
+                    <a href="index.html">HOME</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp; <a href="doctor_appointment.html">MAKE APPOINTMENT</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp; <span class="selected-page">Doctor's Appointment</span>
+                </p>
+            </div>
+            <div class="banner-text">
+                <p class="page-title">APPOINTMENT /<br> ENQUIRY</p>
+                <p class="page-text">Your health is our priority. Book an <br> appointment or enquire with us today.</p>
+            </div>
+        </div>
+
+
+        <!-- Part Below Banner -->
+        <div class="contentwarpper">
+
+            <!-- 3 Buttons Division -->
+            <div id="but-div" class="but-div">
+
+                <div class="hover-effect">
+                    <button class="buttons btn1 selected1" onclick="doctorappointmentPage()">Doctor's<br>Appointment</button>
+                </div>
+    
+                <div class="hover-effect">
+                    <button class="buttons btn2" onclick="healthScreeningPage()">Health Screening<br>Appointment</button>
+                </div>
+    
+                <div class="hover-effect">
+                    <button class="buttons btn3" onclick="enquiryPage()">Enquiry</button>
+                </div>
+                
+    
+                <script>
+                  function doctorappointmentPage() {
+                    location.replace("doctor_appointment.html")
+                  }
+                  function healthScreeningPage() {
+                    location.replace("health_screening.html")
+                  }
+                  function enquiryPage() {
+                    location.replace("enquiry.html")
+                  }
+                </script>
+                  
+            </div>
+
+            <!-- Form Division: Appointment -->
+            
+            <form id="form" name="form" onsubmit="return confirmSubmit();" method="post">
+                    
+                <div class="appointment-div">
+                    <h2><img src="1.png" alt="one" title="First-Section">Appointment Details</h2>
+
+                    <div class="first-row  clearfix">
+                        <select class="select-speciality">
+                            <option disabled selected>Select Specialty (Optional)</option>
+                            <option>Anesthesiology</option>
+                            <option>Cardiology</option>
+                            <option>Dermatology</option>
+                            <option>Emergency Medicine</option>
+                            <option>Endocrinology</option>
+                            <option>Gastroenterology</option>
+                            <option>General Surgery</option>
+                            <option>Hermatology</option>
+                            <option>Neurology</option>
+                            <option>Plumonology</option>
+                            <option>Radiology</option>
+                            <option>Urology</option>
+                        </select>
+
+                        <select class="select-doctor">
+                            <option disabled selected>Select Preferred Doctor (If applicable)</option>
+                            <option>Dr. Samantha Collins</option>
+                            <option>Dr. Benjamin Thompson</option>
+                        </select>
+                    </div>
+
+                    <div id="scroll-to-fourth-row" class="second-row clearfix">
+                        <textarea cols="100" rows="10" placeholder="Medical Concern/ Requests*"></textarea>
+                    </div>
+
+                    <div class="third-row clearfix">
+                        <p>*Indicate 'N/A' if it is not applicable</p>
+                    </div>
+
+                    <br>
+
+                    <div class="fourth-row clearfix">
+                        <input id="datepicker" type="text" placeholder="Select Your Date" class="date">
+                    
+                        <select id="time" class="time">
+                            <option disabled selected value="">Select Your Time</option>
+                            <option id="morningslot" value="morningslot">9am - 12pm</option>
+                            <option id="afternoonslot" value="afternoonslot">2pm - 5pm</option>
+                        </select>
+                    
+                        <span id="dateError" class="error"></span>
+                        <span id="timeError" class="error num"></span>                           
+                    </div>
+                    
+                        
+                    <script>
+                        // Wait for the DOM to load
+                        document.addEventListener("DOMContentLoaded", function() {
+                            // Get the date picker input element
+                            var datepicker = document.getElementById("datepicker");
+
+                            // Add an event listener for the focus event
+                            datepicker.addEventListener("focus", function() {
+                                // Change the input type to "date" to show the date picker
+                                datepicker.type = "date";
+                            });
+
+                            // Add an event listener for the blur event
+                            datepicker.addEventListener("blur", function() {
+                                // If the input is empty, change the type back to "text" and restore the placeholder
+                                if (datepicker.value === "") {
+                                    datepicker.type = "text";
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            
+
+                <!-- Form Division: Patient -->
+                <div id="patient-div" class="patient-div">
+                    <h2><img src="2.png" alt="two" title="Second-Section">Patient's Details</h2>
+                    <input id="fullname" type="text" class="clearfix" placeholder="Patient's Name (as per IC or passport)"><br>
+                    <label id="nameError" class="error"></label><br>
+
+                    <div class="second-row clearfix">
+                        <input id="DOBpicker" type="text" placeholder="Date of Birth" class="date" >
+                        <input id="ic" type="text" placeholder="NRIC">
+
+                        <span id="dobError" class="error"></span>
+                        <span id="icError" class="error num"></span>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                    var datepicker = document.getElementById("DOBpicker");
+
+                                    datepicker.addEventListener("focus", function() {
+                                        datepicker.type = "date";
+                                    });
+                                    
+                                    datepicker.addEventListener("blur", function() {
+                                        if (datepicker.value === "") {
+                                            datepicker.type = "text";
+                                    }
+                                });
+                            }); 
+                        </script>
+                    </div>
+
+                    <div class="third-row clearfix">
+                        <input id="email" type="email" placeholder="Email">
+                        <input id="num" type="text" placeholder="Contact Number (no-dash)">
+
+                        <span id="emailError" class="error"></span>
+                        <span id="numError" class="error num"></span>
+
+                    </div>
+
+                    <br><br>
+
+                    <p>I have read, understand and consent to IHH MY <a href="http://surl.li/irdpe">Personal Data Protection Notice</a></p>
+
+                    <br>
+
+                    <label><input type="checkbox" checked required> I hereby confirm my agreement to the Terms and Conditions.</label>
+                    
+                    <br>
+
+                    <label><input type="checkbox"> I hereby consent to receiving marketing communications and related materials.</label>
+
+                </div>
+
+                <!-- Make Appointment Button Division -->
+                <div class="submit-div">
+                    <button class="make-appointment-button">Make Appointment</button>
+                </div>
+            </form>
+        </div>
+
+        <footer class="footer">
+            <div class="main-content">
+                <div class="left box">
+                    <h4>ABOUT US</h4>
+                    <div class="content">
+                        <ul>
+                            <li><a href="#">Disclaimer</a></li>
+                            <li><a href="#">Personal Data Protection</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                        </ul>
+                    
+                        <br>
+                        <br>
+
+                        <p>Copyright &copy; 2023 Meteor Hospital Sdn Bhd.<br>
+                            All Rights Reserved. Photos are for illustration purposes only<br>
+                            GGMKL 056/2023
+                        </p>
+                    </div>
+                </div>
+
+                <div class="center box">
+                    <h4>CONTACT US</h4>
+
+                    <div class="content">
+                        <div class="place">
+                            <img src="location.png" alt="Location">
+                            <span class="text">456 Meteor Street, Metropolis City, Star County, Galaxy 12345</span>
+                        </div>
+
+                        <br>
+                        
+                        <div class="phone">
+                            <img src="phone.png" alt="Main Line">
+                            <span class="text">Main Line:<br><a href="#">+1 (555) 123-4567</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="whatsapp">
+                            <img src="whatsapp.png" alt="Whatsapp">
+                            <span class="text">Whatsapp:<br><a href="#">+1 (555) 987-6543</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="Emergency">
+                            <img src="emergency.png" alt="Emergency">
+                            <span class="text">Emergency Department / Ambulance Service<br><a href="#">+1 (555) 392-2017</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="fax">
+                            <img src="fax.png" alt="Fax">
+                            <span class="text">Fax<br><a href="#">+1 (555) 439-1068</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="Email">
+                            <img src="email.png" alt="Email">
+                            <span class="text"><a href="mailto:contact@meteorhospital.com">contact@meteorhospital.com</a></span>
+                        </div>
+
+                        <br>
+                    </div>
+                </div>
+
+                <div class="right box">
+                    <h4>OFFICE HOURS</h4>
+
+                    <div class="content">
+                        <p class="day">Monday to Friday</p>
+                        <p>8:30am to 6:00pm</p>
+
+                        <br>
+
+                        <p class="day">Saturday</p>
+                        <p>8:30am to 2:00pm</p>
+
+                        <br>
+
+                        <p class="day">Closed on Sundays</p>
+                    </div>
+
+                    <br><br><br>
+
+                    <h4>FOLLOW US</h4>
+
+                    <div class="content">
+                        <div class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Wait for the DOM to load
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get the date picker input element
+                var datepicker = document.getElementById("datepicker");
+    
+                // Add an event listener for the focus event
+                datepicker.addEventListener("focus", function() {
+                    // Change the input type to "date" to show the date picker
+                    datepicker.type = "date";
+                });
+    
+                // Add an event listener for the blur event
+                datepicker.addEventListener("blur", function() {
+                    // If the input is empty, change the type back to "text" and restore the placeholder
+                    if (datepicker.value === "") {
+                        datepicker.type = "text";
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

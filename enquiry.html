@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Enquiry</title>
+        <meta name="description" content="Contact Meteor Hospital for any inquiries or questions regarding our medical services. Our dedicated enquiry page allows you to reach out to our knowledgeable staff who can provide detailed information about our specialties, treatments, facilities, and more. Trust Meteor Hospital for prompt and informative responses to your healthcare-related queries. Start your journey towards exceptional healthcare by submitting an enquiry today.">
+        <meta name="keywords" content="Meteor Hospital, hospital, medical services, healthcare, enquiry, ask questions, consultation">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="ASSIGNMENT2.css">
+        <link rel="icon" type="image/x-icon" href="meteor.ico">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <script src="https://kit.fontawesome.com/0e22e4bdcf.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <script>
+            function validateForm() {
+                // Retrieve the values from the form fields
+                var name = document.forms["enquiry-form"]["name"].value;
+                var ic = document.forms["enquiry-form"]["ic"].value;
+                var email = document.forms["enquiry-form"]["email"].value;
+                var contact = document.forms["enquiry-form"]["contact-number"].value;
+                var enquiry = document.forms["enquiry-form"]["enquiry"].value;
+
+                // Clear any previous error messages
+                document.getElementById("nameError").innerHTML = "";
+                document.getElementById("name").style.border = "1px solid gray";
+                document.getElementById("icError").innerHTML = "";
+                document.getElementById("ic").style.border = "1px solid gray";
+                document.getElementById("emailError").innerHTML = "";
+                document.getElementById("email").style.border = "1px solid gray";
+                document.getElementById("contactNumberError").innerHTML = "";
+                document.getElementById("contact-number").style.border = "1px solid gray";
+                document.getElementById("enquiryError").innerHTML = "";
+                document.getElementById("enquiry").style.border = "1px solid gray";
+
+                // Flag to track if any validation error occurs
+                var hasError = false;
+
+                // Check if enquiry is empty
+                if (enquiry.trim() === "") {
+                    document.getElementById("enquiryError").innerHTML = "Please enter your enquiry.";
+                    document.getElementById("enquiry").style.border = "2px solid red";
+                    document.getElementById("enquiry").scrollIntoView();
+                    hasError = true;
+                }
+
+                // Check if contact number is valid using a regex pattern
+                var contactPattern2 = /^(01\d{8}|01\d{9})$/; // Assumes a 10 or 11-digit phone number starting with 01
+                if (!contactPattern2.test(contact)) {
+                    document.getElementById("contactNumberError").innerHTML = "Contact number must contain 10 or 11 digits. (Ex: 0123456789)";
+                    document.getElementById("contact-number").style.border = "2px solid red";
+                    document.getElementById("contact-number").scrollIntoView();
+                    hasError = true;
+                }
+                
+                // Check if contact number is all digit
+                var contactPattern = /^\d+$/;
+                if (!contactPattern.test(contact)) {
+                    document.getElementById("contactNumberError").innerHTML = "Contact number must contain only numbers";
+                    document.getElementById("contact-number").style.border = "2px solid red";
+                    document.getElementById("contact-number").scrollIntoView();
+                    hasError = true;
+                }
+
+                // Check if contact-number is empty
+                if (contact.trim() === "") {
+                    document.getElementById("contactNumberError").innerHTML = "Please enter your contact number.";
+                    document.getElementById("contact-number").style.border = "2px solid red";
+                    document.getElementById("contact-number").scrollIntoView();
+                    hasError = true;
+                }
+
+                // Check if email is valid using a simple regex pattern
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    document.getElementById("emailError").innerHTML = "Please enter a valid email address.";
+                    document.getElementById("email").style.border = "2px solid red";
+                    document.getElementById("email").scrollIntoView();
+                    hasError = true;
+                }
+
+                if (email.trim() === "") {
+                    document.getElementById("emailError").innerHTML = "Please enter your email.";
+                    document.getElementById("email").style.border = "2px solid red";
+                    document.getElementById("email").scrollIntoView();
+                    hasError = true;
+                }
+
+                var icPattern = /^\d{12}$/; // Assumes a 12-digit identification number
+                if (!icPattern.test(ic)) {
+                    document.getElementById("icError").innerHTML = "Please enter a valid 12-digit NRIC (numbers only).";
+                    document.getElementById("ic").style.border = "2px solid red";
+                    document.getElementById("ic").scrollIntoView();
+                    hasError = true;
+                }
+
+                // Check if ic-passport is empty
+                if (ic.trim() === "") {
+                    document.getElementById("icError").innerHTML = "Please enter your IC number.";
+                    document.getElementById("ic").style.border = "2px solid red";
+                    document.getElementById("ic").scrollIntoView();
+                    hasError = true;
+                }
+
+                //Check if name is valid
+                var namePattern = /^[a-zA-Z\s]+$/;
+                if (!namePattern.test(name)) {
+                    document.getElementById("nameError").innerHTML = "Name must contain only characters.";
+                    document.getElementById("name").style.border = "2px solid red";
+                    document.getElementById("name").scrollIntoView();
+                    hasError = true;
+                }
+                
+                // Check if name is empty
+                if (name.trim() === "") {
+                    document.getElementById("nameError").innerHTML = "Please enter your name.";
+                    document.getElementById("name").style.border = "2px solid red";
+                    document.getElementById("name").scrollIntoView();
+                    hasError = true;
+                }
+
+                // Display confirmation alert before submitting the form
+                if (!hasError) {
+                    var confirmation = confirm("Are you sure you want to submit the form?");
+                    if (confirmation) {
+                        alert("You have successfully submitted the form.");
+                        return true;
+                    }
+                    if (!confirmation) {
+                        return false;
+                    }
+                }
+
+                // Return false if any validation error occurs
+                if (hasError) {
+                    return false;
+                }
+            }
+        </script>
+    
+        <!--Header-->
+        <nav>
+            <div class="header">
+                <div class="navigation-toggle"></div>
+                <div class="logo">
+                    <a href="index.html">
+                    <img src="meteor_logo.png" alt="Hospital Logo">
+                    </a>
+                </div>
+
+                <ul class="navigation">
+                    <li><a href="index.html#aboutus">ABOUT US</a></li> 
+                    <li><a href="find-doctor.html">FIND A DOCTOR</a></li> 
+                    <li><a href="enquiry.html">ENQUIRY</a></li> 
+                    <li><a href="health_hub.html">HEALTH HUB</a></li> 
+                    <li><a href="#contactus">CONTACT US</a></li> 
+                </ul>
+
+                <ul class="make-appointment">
+                    <li><a href="doctor_appointment.html">MAKE APPOINTMENT</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <script>
+            window.addEventListener("scroll", function() {
+                var nav = document.querySelector("nav");
+                if (window.scrollY > 0) {
+                    nav.classList.add("scrolled");
+                } else {
+                    nav.classList.remove("scrolled");
+                }
+            });
+        </script>
+
+        <!-- Banner Part -->
+        <div class="banner">
+            <div class="breadcrumb-div">
+                <p>
+                    <a href="#">HOME</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp; <a href="doctor_appointment.html">MAKE APPOINTMENT</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp; <span class="selected-page">Enquiry</span>
+                </p>
+            </div>
+            <div class="banner-text">
+                <p class="page-title">APPOINTMENT /<br> ENQUIRY</p>
+                <p class="page-text">Your health is our priority. Book an <br> appointment or enquire with us today.</p>
+            </div>
+        </div>
+        
+
+        <!-- Part Below Banner -->
+        <!-- 3 Buttons Division -->
+        <div class="but-div">
+
+            <div class="hover-effect">
+                <button class="buttons btn1" onclick="doctorappointmentPage()">Doctor's<br>Appointment</button>
+            </div>
+
+            <div class="hover-effect">
+                <button class="buttons btn2" onclick="healthScreeningPage()">Health Screening<br>Appointment</button>
+            </div>
+
+            <button class="buttons btn3 selected3" onclick="enquiryPage()">Enquiry</button>
+
+            <script>
+                function doctorappointmentPage() {
+                    location.replace("doctor_appointment.html")
+                }
+                function healthScreeningPage() {
+                    location.replace("health_screening.html")
+                }
+                function enquiryPage() {
+                    location.replace("enquiry.html")
+                }
+            </script>
+        </div>
+        
+        <!-- Form Division: Enquiry -->
+        <!-- <div class="enquiry-div"> -->
+        <form name="enquiry-form" action="#" method="post" class="form" onsubmit="return validateForm()">
+                
+            <div class="enquiry-div">
+                <input type="text" class="clearfix enquiry-formName" placeholder="Full Name (as per IC or passport)" id="name"><br>
+                <div class="error-wrapper">
+                    <label id="nameError" class="error"></label>
+                </div>    
+
+                <div class="enquiry-box">
+                    <div class="enquiry-formLeft">
+                        <input type="text" placeholder="NRIC" id="ic"><br>
+                        <div class="error-wrapper">
+                            <label id="icError" class="error"></label>
+                        </div>
+
+                        <input type="text" placeholder="Email" id="email"><br>
+                        <div class="error-wrapper">
+                            <label id="emailError" class="error"></label>
+                        </div>
+
+                        <input type="text" placeholder="Contact Number (No Dash)" id="contact-number"><br>
+                        <div class="error-wrapper">
+                            <label id="contactNumberError" class="error"></label>
+                        </div>
+                    </div>
+
+                    <div class="enquiry-formRight">
+                        <textarea rows="7" cols="100" placeholder="Enquiry" id="enquiry"></textarea><br>
+                        <div class="error-wrapper">
+                            <label id="enquiryError" class="error"></label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <p>I have read, understand and consent to IHH MY <a href="http://surl.li/irdpe">Personal Data Protection Notice</a></p>
+                <br>
+                <label><input type="checkbox" checked required> I agree to the terms & conditions.</label><br>
+                <label><input type="checkbox"> I hereby consent to receiving marketing communications and related materials.</label>
+            
+            </div>
+
+                <!-- Make Appointment Button Division -->
+                <div class="submit-div">
+                    <button class="make-appointment-button">Make Appointment</button>
+                </div>
+            
+        </form>
+
+        
+
+
+
+        <!--Footer-->
+        <footer class="footer">
+            <div class="main-content">
+                <div class="left box">
+                    <h4>ABOUT US</h4>
+                    <div class="content">
+                        <ul>
+                            <li><a href="#">Disclaimer</a></li>
+                            <li><a href="#">Personal Data Protection</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                        </ul>
+                    
+                        <br>
+                        <br>
+
+                        <p>Copyright &copy; 2023 Meteor Hospital Sdn Bhd.<br>
+                            All Rights Reserved. Photos are for illustration purposes only<br>
+                            GGMKL 056/2023
+                        </p>
+                    </div>
+                </div>
+
+                <div class="center box">
+                    <h4>CONTACT US</h4>
+
+                    <div class="content">
+                        <div class="place">
+                            <img src="location.png" alt="Location">
+                            <span class="text">456 Meteor Street, Metropolis City, Star County, Galaxy 12345</span>
+                        </div>
+
+                        <br>
+                        
+                        <div class="phone">
+                            <img src="phone.png" alt="Main Line">
+                            <span class="text">Main Line:<br><a href="#">+1 (555) 123-4567</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="whatsapp">
+                            <img src="whatsapp.png" alt="Whatsapp">
+                            <span class="text">Whatsapp:<br><a href="#">+1 (555) 987-6543</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="Emergency">
+                            <img src="emergency.png" alt="Emergency">
+                            <span class="text">Emergency Department / Ambulance Service<br><a href="#">+1 (555) 392-2017</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="fax">
+                            <img src="fax.png" alt="Fax">
+                            <span class="text">Fax<br><a href="#">+1 (555) 439-1068</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="Email">
+                            <img src="email.png" alt="Email">
+                            <span class="text"><a href="mailto:contact@meteorhospital.com">contact@meteorhospital.com</a></span>
+                        </div>
+
+                        <br>
+                    </div>
+                </div>
+
+                <div class="right box">
+                    <h4>OFFICE HOURS</h4>
+
+                    <div class="content">
+                        <p class="day">Monday to Friday</p>
+                        <p>8:30am to 6:00pm</p>
+
+                        <br>
+
+                        <p class="day">Saturday</p>
+                        <p>8:30am to 2:00pm</p>
+
+                        <br>
+
+                        <p class="day">Closed on Sundays</p>
+                    </div>
+
+                    <br><br><br>
+
+                    <h4>FOLLOW US</h4>
+
+                    <div class="content">
+                        <div class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Meteor Hospital</title>
+    <meta name="description" content="Contact Meteor Hospital for any inquiries or questions regarding our medical services. Our dedicated enquiry page allows you to reach out to our knowledgeable staff who can provide detailed information about our specialties, treatments, facilities, and more. Trust Meteor Hospital for prompt and informative responses to your healthcare-related queries. Start your journey towards exceptional healthcare by submitting an enquiry today.">
+    <meta name="keywords" content="Meteor Hospital, hospital, medical services, healthcare, enquiry, ask questions, consultation">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="ASSIGNMENT2.css">
+    <link rel="icon" type="image/x-icon" href="meteor.ico">
+    <script src="https://kit.fontawesome.com/0e22e4bdcf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>
+        function validateForm() {
+          // Retrieve the values from the form fields
+          var fullName = document.getElementById("full-name").value;
+          var nricPassport = document.getElementById("nric-passport").value;
+          var email = document.getElementById("email").value;
+          var contactNumber = document.getElementById("contact-number").value;
+          var enquiry = document.getElementById("enquiry").value;
+    
+          // Check if any of the fields is empty
+          if (fullName.trim() === "" || nricPassport.trim() === "" || email.trim() === "" || contactNumber.trim() === "" || enquiry.trim() === "") {
+            alert("Please fill in all the required fields.");
+            return false;
+          }
+    
+          // Check if the contact number is valid
+          var contactPattern = /^(01\d{8}|01\d{9})$/; // Assumes a 10 or 11-digit phone number starting with 01
+          if (!contactPattern.test(contactNumber)) {
+            alert("Please enter a valid contact number. (Ex: 0123456789)");
+            return false;
+          }
+    
+          // Check if the email is valid
+          var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+          }
+    
+          // Display confirmation message
+          var confirmation = confirm("Are you sure you want to submit the form?");
+          if (confirmation) {
+            alert("Your enquiry has been submitted successfully.");
+            return true;
+          } else {
+            return false;
+          }
+        }
+    
+        function cancelEnquiry() {
+          window.location.href = "gastroenterology.html";
+        }
+    </script>
+      
+  <nav>
+      <div class="header">
+          <div class="logo">
+              <a href="index.html">
+              <img src="meteor_logo.png" alt="Hospital Logo">
+              </a>
+          </div>
+
+          <ul class="navigation">
+            <li><a href="index.html#aboutus">ABOUT US</a></li>
+            <li><a href="find-doctor.html">FIND A DOCTOR</a></li>
+            <li><a href="enquiry.html">ENQUIRY</a></li>
+            <li><a href="health_hub.html">HEALTH HUB</a></li>
+            <li><a href="index.html#contactus">CONTACT US</a></li> 
+          </ul>
+
+          <ul class="make-appointment">
+              <li><a href="doctor_appointment.html">MAKE APPOINTMENT</a></li>
+          </ul>
+      </div>
+  </nav>
+
+  <script>
+      const nav = document.querySelector("nav");
+
+      window.addEventListener("scroll", () => {
+          if (window.scrollY > 0) {
+              nav.classList.add("scrolled");
+          } else {
+              nav.classList.remove("scrolled");
+          }
+      });
+  </script>
+
+    <div class="breadcrumb-div">
+      <p class="breadcrumb">
+          <a href="index.html">HOME</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;
+          <a href="find-doctor.html">FIND A DOCTOR</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;
+          <a href= "gastroenterology.html">Gastroenterology</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;
+          <span class="selected-page">Enquiry(Doctor)</span>
+      </p>
+    </div>
+      
+    <div class="doctor-profile">
+        <div class="left-details">
+          <img src="doctor1.png" alt="Doctor Profile Picture" id="doctor1">
+        </div>
+
+        <div class="profile-details">
+            <h2 class="doctor-name">Dr. Samantha Collins</h2>
+            <form id="contact-form" onsubmit="return validateForm()">
+                <div class="form-group">
+                <input type="text" id="full-name" name="full-name" placeholder="Full Name (as per IC or passport)">
+                </div>
+                <div class="form-group">
+                <input type="text" id="nric-passport" name="nric-passport" placeholder="NRIC or Passport No.">
+                </div>
+                <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                <input type="tel" id="contact-number" name="contact-number" placeholder="Contact number">
+                </div>
+                <div class="form-group">
+                <textarea id="enquiry" name="enquiry" placeholder="Enquiry"></textarea>
+                </div>
+                
+                <p>I have read, understand, and consent to IHH MY<a href="IHH%20MY%20Personal%20Data%20Protection%20Notice"> Personal Data Protection Notice</a></p>
+                <br>
+                <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="marketing-messages" required checked>
+                    I hereby confirm my agreement to the Terms and Conditions.
+                </label>
+                <label>
+                    <input type="checkbox" name="marketing-messages">
+                    I hereby consent to receiving marketing communications and related materials.
+                </label>
+                </div>
+                
+                <div class="button-group">
+                <button type="submit">Send</button>
+                <button type="button" onclick="cancelEnquiry()">Cancel</button>  
+                </div>
+            </form>
+        </div>
+    </div>
+             
+    <footer class="footer">
+        <div class="main-content">
+            <div class="left box">
+                <h4>ABOUT US</h4>
+                <div class="content">
+                    <ul>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Personal Data Protection</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                
+                    <br>
+                    <br>
+
+                    <p>&copy; 2023 Meteor Hospital Sdn Bhd.<br>
+                        All Rights Reserved. Photos are for illustration purposes only<br>
+                        GGMKL 056/2023
+                    </p>
+                </div>
+            </div>
+
+            <div class="center box">
+                <h4>CONTACT US</h4>
+
+                <div class="content">
+                    <div class="place">
+                        <img src="location.png" alt="Location">
+                        <span class="text">456 Meteor Street, Metropolis City, Star County, Galaxy 12345</span>
+                    </div>
+
+                    <br>
+                    
+                    <div class="phone">
+                        <img src="phone.png" alt="Main Line">
+                        <span class="text">Main Line:<br><a href="#">+1 (555) 123-4567</a></span>
+                    </div>
+
+                    <br>
+
+                    <div class="whatsapp">
+                        <img src="whatsapp.png" alt="Whatsapp">
+                        <span class="text">Whatsapp:<br><a href="#">+1 (555) 987-6543</a></span>
+                    </div>
+
+                    <br>
+
+                    <div class="Emergency">
+                        <img src="emergency.png" alt="Emergency">
+                        <span class="text">Emergency Department / Ambulance Service<br><a href="#">+1 (555) 392-2017</a></span>
+                    </div>
+
+                    <br>
+
+                    <div class="fax">
+                        <img src="fax.png" alt="Fax">
+                        <span class="text">Fax<br><a href="#">+1 (555) 439-1068</a></span>
+                    </div>
+
+                    <br>
+
+                    <div class="Email">
+                        <img src="email.png" alt="Email">
+                        <span class="text"><a href="mailto:contact@meteorhospital.com">contact@meteorhospital.com</a></span>
+                    </div>
+
+                    <br>
+                </div>
+            </div>
+
+                <div class="right box">
+                <h4>OFFICE HOURS</h4>
+
+                <div class="content">
+                    <p class="day">Monday to Friday</p>
+                    <p>8:30am to 6:00pm</p>
+
+                    <br>
+
+                    <p class="day">Saturday</p>
+                    <p>8:30am to 2:00pm</p>
+
+                    <br>
+
+                    <p class="day">Closed on Sundays</p>
+                </div>
+
+                <br><br><br>
+
+                <h4>FOLLOW US</h4>
+
+                <div class="content">
+                    <div class="social-media">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

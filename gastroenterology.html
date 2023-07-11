@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Gastroenterology</title>
+        <meta name="description" content="Discover our team of expert doctors at Meteor Hospital. Our dedicated doctor page showcases experienced physicians specializing in cardiology, neurology, orthopedics, and more. Get to know our doctors' qualifications, areas of expertise, and professional achievements. Trust in the expertise and personalized care provided by our esteemed doctors. Find the right doctor for your healthcare needs at Meteor Hospital and experience exceptional medical care.">
+        <meta name="keywords" content="Meteor Hospital, hospital, medical services, healthcare, doctor, specialities, medical professionals, medical expert">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="ASSIGNMENT2.css">
+        <link rel="icon" type="image/x-icon" href="meteor.ico">
+        <script src="https://kit.fontawesome.com/0e22e4bdcf.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <nav>
+            <div class="header">
+                <div class="logo">
+                    <a href="index.html">
+                    <img src="meteor_logo.png" alt="Hospital Logo">
+                    </a>
+                </div>
+
+                <ul class="navigation">
+                    <li><a href="index.html#aboutus">ABOUT US</a></li>
+                    <li><a href="find-doctor.html">FIND A DOCTOR</a></li>
+                    <li><a href="enquiry.html">ENQUIRY</a></li>
+                    <li><a href="health_hub.html">HEALTH HUB</a></li>
+                    <li><a href="index.html#contactus">CONTACT US</a></li> 
+                </ul>
+
+                <ul class="make-appointment">
+                    <li><a href="doctor_appointment.html">MAKE APPOINTMENT</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <script>
+            const nav = document.querySelector("nav");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 0) {
+                    nav.classList.add("scrolled");
+                } else {
+                    nav.classList.remove("scrolled");
+                }
+            });
+        </script>
+
+        <div class="breadcrumb-div">
+            <p class="breadcrumb">
+                <a href="index.html">HOME</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;
+                <a href="find-doctor.html">FIND A DOCTOR</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;
+                <span class="selected-page">Gastroenterology</span>
+            </p>
+        </div>
+
+        <div class="doctor-profile" id="samantha">
+            <div class="left-details">
+                <img src="doctor1.png" alt="Doctor Profile Picture" id="doctor1">
+                <div class="choose">
+                    <button class="book-appointment" onclick="window.location.href='doctor_appointment.html'">Book an Appointment</button>
+                    <button class="enquiry" onclick="window.location.href='enquiry1.html'">Enquiry</button>
+                </div>
+            </div>
+            
+            <div class="profile-details">
+              <h2 class="doctor-name">Dr. Samantha Collins</h2>
+              <br>
+              <p class="doctor-specialty"><b>Specialty:</b> Gastroenterology</p>
+              <br>
+              <p class="doctor-qualifications"><b>Qualifications:</b></p>
+              <ul class="doctor-qualifications">
+                <li>MD Degree from Harvard Medical School.</li>
+                <li>Residency in internal Medicine at Johns Hopkins Hospital.</li>
+                <li>Fellowship in Gastroenterology at Mayo Clinic.</li>
+                <li>Over 15 years of experience in diagnosing and treating gastrointestinal disorders.</li>
+                <li>A recognized expert in the field of Gastroenterology.</li>
+              </ul>
+              <br>
+              <p class="doctor-info"><b>Contact Information:</b></p>
+              <ul class="doctor-info">
+                <li>Email: <a href="mailto:drsamcollins@meteorhospital.com">drsamcollins@meteorhospital.com</a></li>
+                <li>Phone: +1 (555) 123-4567</li>
+              </ul>
+            </div>
+
+            <h3>Clinical Hours:</h3>
+                <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                </tr>
+                <tr>
+                    <td>Mon</td>
+                    <td>9:00am - 1:00pm</td>
+                </tr>
+                <tr>
+                    <td>Tue</td>
+                    <td>2:00pm - 6:00pm</td>
+                </tr>
+                <tr>
+                    <td>Wed</td>
+                    <td>9:00am - 12:00pm</td>
+                </tr>
+                <tr>
+                    <td>Thu</td>
+                    <td>10:00am - 3:00pm</td>
+                </tr>
+                <tr>
+                    <td>Fri</td>
+                    <td>1:00pm - 5:00pm</td>
+                </tr>
+                <tr>
+                    <td>Sat</td>
+                    <td>11:00am - 4:00pm</td>
+                </tr>
+                <tr>
+                    <td>Sun</td>
+                    <td>1:00pm - 5:00pm</td>
+                </tr>
+                </table>
+        </div>  
+
+        <div class="doctor-profile" id="benjamin">
+            <div class="left-details">
+                <img src="doctor2.png" alt="Doctor Profile Picture" id="doctor2">
+                <div class="choose">
+                    <button class="book-appointment" onclick="window.location.href='doctor_appointment.html'">Book an Appointment</button>
+                    <button class="enquiry" onclick="window.location.href='enquiry2.html'">Enquiry</button>
+                </div>
+            </div>
+            <div class="profile-details">
+                <h2 class="doctor-name">Dr. Benjamin Thompson</h2>
+                <br>
+                <p class="doctor-specialty"><b>Specialty:</b> Gastroenterology</p>
+                <br>
+                <p class="doctor-qualifications"><b>Qualifications:</b></p>
+                <ul class="doctor-qualifications">
+                <li>Medical degree from Stanford University School of Medicine</li>
+                <li>Residency in Internal Medicine at Massachusetts General Hospital.</li>
+                <li>Fellowship in Gastroenterology at Johns Hopkins Hospital.</li>
+                <li>Specialized expertise in the diagnosis and treatment of gastrointestinal disorders.</li>
+                </ul>
+                <br>
+                <p class="doctor-info"><b>Contact Information:</b></p>
+                <ul class="doctor-info">
+                    <li>Email: <a href="mailto:drbthompson@meteorhospital.com">drbthompson@meteorhospital.com</a></li>
+                    <li>Phone: +1 (555) 987-6543</li>
+                </ul>
+            </div>
+            <h3>Clinical Hours:</h3>
+            <table>
+            <tr>
+                <th>Day</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Mon</td>
+                <td>9:00am - 1:00pm</td>
+            </tr>
+            <tr>
+                <td>Tue</td>
+                <td>10.00am - 3.00pm</td>
+            </tr>
+            <tr>
+                <td>Wed</td>
+                <td>1.00pm - 5.00pm</td>
+            </tr>
+            <tr>
+                <td>Thu</td>
+                <td>9.00am - 12.00pm</td>
+            </tr>
+            <tr>
+                <td>Fri</td>
+                <td>2.00pm - 6.00pm</td>
+            </tr>
+            <tr>
+                <td>Sat</td>
+                <td>11.00am - 4.00pm</td>
+            </tr>
+            <tr>
+                <td>Sun</td>
+                <td>1.00pm - 5.00pm</td>
+            </tr>
+            </table>
+       </div>
+                         
+        <footer class="footer">
+            <div class="main-content">
+                <div class="left box">
+                    <h4>ABOUT US</h4>
+                    <div class="content">
+                        <ul>
+                            <li><a href="#">Disclaimer</a></li>
+                            <li><a href="#">Personal Data Protection</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                        </ul>
+                    
+                        <br>
+                        <br>
+
+                        <p>Copyright &copy; 2023 Meteor Hospital Sdn Bhd.<br>
+                            All Rights Reserved. Photos are for illustration purposes only<br>
+                            GGMKL 056/2023
+                        </p>
+                    </div>
+                </div>
+
+                <div class="center box">
+                    <h4>CONTACT US</h4>
+
+                    <div class="content">
+                        <div class="place">
+                            <img src="location.png" alt="Location">
+                            <span class="text">456 Meteor Street, Metropolis City, Star County, Galaxy 12345</span>
+                        </div>
+
+                        <br>
+                        
+                        <div class="phone">
+                            <img src="phone.png" alt="Main Line">
+                            <span class="text">Main Line:<br><a href="#">+1 (555) 123-4567</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="whatsapp">
+                            <img src="whatsapp.png" alt="Whatsapp">
+                            <span class="text">Whatsapp:<br><a href="#">+1 (555) 987-6543</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="Emergency">
+                            <img src="emergency.png" alt="Emergency">
+                            <span class="text">Emergency Department / Ambulance Service<br><a href="#">+1 (555) 392-2017</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="fax">
+                            <img src="fax.png" alt="Fax">
+                            <span class="text">Fax<br><a href="#">+1 (555) 439-1068</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="Email">
+                            <img src="email.png" alt="Email">
+                            <span class="text"><a href="mailto:contact@meteorhospital.com">contact@meteorhospital.com</a></span>
+                        </div>
+
+                        <br>
+                    </div>
+                </div>
+
+                <div class="right box">
+                    <h4>OFFICE HOURS</h4>
+
+                    <div class="content">
+                        <p class="day">Monday to Friday</p>
+                        <p>8:30am to 6:00pm</p>
+
+                        <br>
+
+                        <p class="day">Saturday</p>
+                        <p>8:30am to 2:00pm</p>
+
+                        <br>
+
+                        <p class="day">Closed on Sundays</p>
+                    </div>
+
+                    <br><br><br>
+
+                    <h4>FOLLOW US</h4>
+
+                    <div class="content">
+                        <div class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

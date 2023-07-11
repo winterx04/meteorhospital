@@ -1,0 +1,1689 @@
+body {
+    background-color: #DDF3FF;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background-color: #ffffff;
+    padding: 0;
+    transition: box-shadow 0.4s ease;
+}
+
+nav.scrolled {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+}
+  
+.logo {
+    margin-right: 20px;
+    margin-left: 10px;
+    padding: 10px;
+}
+  
+.logo img {
+    max-width: 100%; /* Adjust the height as per your logo's dimensions */
+    max-height: 50px;
+}
+  
+.navigation {
+    list-style: none;
+    margin-left: auto;
+    margin-right: 10px;
+}
+  
+.navigation li {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px;
+}
+  
+.navigation li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+}
+  
+.navigation li a:hover {
+    text-decoration: underline;
+}
+  
+.make-appointment {
+    list-style: none;
+    padding: 30px;
+    background-color: #32cdca;
+}
+  
+.make-appointment li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+  
+.make-appointment li a:hover {
+    text-decoration: underline;
+}
+
+#video-container {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    margin-bottom: 50px;
+}
+
+#video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.why-choose-us {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+    background-image: url(whychooseus_bg.png);
+    margin-bottom: 50px;
+}
+
+.why-choose-us .heading {
+    font-size: 28px;
+    margin-bottom: 0px;
+}
+
+.why-choose-us .heading h2 {
+    font-weight: bolder;
+}
+
+.why-choose-us .details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.why-choose-us .details .left-box {
+    padding-right: 120px;
+    padding-left: 50px;
+}
+
+.why-choose-us .details .right-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.why-choose-us .details .left-box .description {
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+    line-height: 2;
+}
+
+.why-choose-us .details .right-box .icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 100px;
+    justify-items: center;
+    align-items: center;
+}
+
+.why-choose-us .details .right-box .row1 .icon {
+    width: 200px;
+    text-align: center;
+    margin: 50px;
+    padding-bottom: 30px;
+}
+
+.why-choose-us .details .right-box .row1 .icon img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.why-choose-us .details .right-box .row1 .icon .number {
+    font-size: 40px;
+    font-weight: bolder;
+    margin-bottom: 5px;
+    color: #617986;
+}
+
+.about-us {
+    text-align: center;
+    padding: 50px;
+    background-image: url(aboutus_bg.png);
+    background-size: cover;
+}
+
+.heading-2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.about-us .heading-2 h2 {
+    font-weight: bolder;
+}
+
+.about-us-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.left-aboutus {
+    flex-basis: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.description-aboutus {
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 20px;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: rgba(239, 247, 251, 0.5);
+}
+
+.extended-text {
+    display: none;
+}
+
+.extended-text.show {
+    display: block;
+}
+
+.read-more {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.read-more a:hover {
+    color: #0022ff;
+}
+
+.right-aboutus {
+    flex-basis: 50%;
+    padding: 20px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 3s ease;
+}
+
+.dot.active {
+    background-color: #333;
+    opacity: 1;
+}
+
+.read-more {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.read-more a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ---------------- HEALTH HUB CSS ---------------- */
+
+.health-hub {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 500px;
+    background-image: url(healthhub_header.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-links {
+    width: 100%;
+    padding: 40px;
+    padding-left: 100px;
+}
+
+.links {
+    font-size: 16px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #192DDF;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.health-hub-title {
+    font-size: 50px; 
+    font-weight: bolder;
+    color: #34597a;   
+}
+
+.health-hub-text {
+    font-size: 20px;
+    line-height: 1.5;
+    padding-top: 12px;
+    color: #23668b;
+}
+
+.health-hub-header {
+    width: 100%;
+    padding: 40px;
+    padding-left: 100px;
+}
+
+.wrapper {
+    width: 90%;
+    position: relative;
+    display: flex;
+    margin-left: 70px;
+    margin-right: 70px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* blog post */
+
+.title {
+    font-size: 28px;
+    margin-bottom: 0px;
+    text-align: center;
+    padding: 20px;
+}
+
+.carousel {
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper i {
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+}
+
+.wrapper i:active {
+    transform: translateY(-50%) scale(0.85);
+}
+
+.wrapper i:first-child {
+    left: -22px;
+}
+
+.wrapper i:last-child {
+    right: -22px;
+}
+
+.wrapper .carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;  
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel :where(.card, .img) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .card {
+  scroll-snap-align: start;
+  height: 400px;
+  list-style: none;
+  background: #aae0e1;
+  cursor: pointer;
+  padding-bottom: 15px;
+  flex-direction: column;
+  border-radius: 8px;
+  
+  text-align: center;
+}
+
+.second-carousel .card {
+    background: #c4aae1;
+}
+
+.third-carousel .card {
+    background: #e1aaaa;
+}
+
+.carousel .card .img {
+  height: auto;
+  width: 100%;
+  border-radius: 5%;
+}
+
+.card .img img {
+  width: 100%; /* Set the image width to 100% of the parent container */
+  height: 275px; /* Let the image maintain its aspect ratio */
+  object-fit: cover;
+}
+
+.carousel .card h2 {
+  font-weight: 500;
+  font-size: 1.56rem;
+  margin: 10px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.carousel .card .heads {
+    margin: 23px;
+}
+
+.carousel .card a {
+  color: blue;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+
+.underline {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+/* enquiry-doctor */
+
+.breadcrumb {
+    font-size:16px; 
+}
+.breadcrumb a {
+    text-decoration:none;
+    font-weight: 400;
+    color:#192DDF;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.doctor-profile {
+    margin: 30px auto;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    justify-content: center;
+    width: 80%;
+    height: auto;
+}
+
+.left-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+  
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0%;
+    margin-left: 40px;  
+    text-align: left;
+    flex-grow: 1;
+}
+  
+.choose {
+    margin-top: 20px;
+    text-align: left;
+}
+  
+.choose button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    
+}
+
+.enquiry {
+    background-color:#88f2f0;
+    color: #15717b;
+    font-weight: 700;
+    font-size: medium;
+}
+
+.book-appointment {
+    background-color: #1d9aa8;
+    color: white;
+    font-weight: 700;
+    font-size: medium;
+}
+
+.choose .book-appointment:hover {
+    background-color: #0D7376;
+}
+
+.choose .enquiry:hover {
+    background-color: #64c8c5;
+}
+
+h2 {
+    color:#105d65;
+}
+
+h3 {
+    font-size: medium;
+    margin: 6% auto;
+    white-space: nowrap; 
+}
+  
+#doctor1 {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    float: left;
+}
+
+#doctor2 {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    float:left;
+}
+  
+table {
+    width: 40%;
+    height: 40%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 100px; /* Adjust the margin-top value as needed */
+    border: 3px solid white;
+    margin-left: 0%;
+    
+}
+  
+th {
+    background-color: hsl(185, 86%, 91%);
+    color: black;
+    padding: 6px;
+    text-align: left;
+    border-bottom: 3px solid white;
+}
+  
+td {
+    background-color: hsl(185, 86%, 91%);
+    padding: 6px;
+    border-bottom: 3px solid white;
+}
+  
+th:first-child,
+td:first-child {
+    border-right: 3px solid white;
+    background-color: #9ceffa;
+}
+  
+td.time-label {
+    color: lightblue;
+}
+
+/* enquiry-1 & enquiry-2 */
+  
+#contact-form {
+    margin-top: 20px;
+}
+  
+.form-group {
+    margin-bottom: 20px;
+}
+  
+.profile-details label {
+    display: block;
+    font-weight: bold;
+}
+  
+.profile-details input[type="text"],
+.profile-details input[type="email"],
+.profile-details input[type="tel"],
+.profile-details textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.profile-details p {
+    font-size: 15px;
+}
+.profile-details a {
+    color: #2963df;
+}
+  
+.doctor-profile .left-details textarea {
+    height: 100px;
+}
+
+.profile-details a {
+    text-decoration: none;
+}
+  
+.checkbox-group {
+    text-align: left;
+    font-size: small;
+}
+  
+.checkbox-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: normal; 
+    font-size: 15px;
+}
+  
+  
+.button-group {
+    margin-top: 20px;
+    text-align: center;
+}
+  
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 40px;
+    margin-right: 100px;
+    cursor: pointer;
+    display: inline-block;
+    width: 200px;
+}
+  
+  
+button[type="submit"] {
+    background-color: #1d9aa8;
+    color: white;
+    font-weight: 700;
+    font-size: large;
+}
+
+button[type="submit"]:hover {
+    background-color: #0D7376;
+}
+  
+button[type="button"] {
+    background-color:#88f2f0;
+    color: #15717b;
+    font-weight: 700;
+    font-size: large;
+}
+
+button[type="button"]:hover {
+    background-color: #64c8c5;
+}
+
+/* VINCI CSS */
+.banner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 500px;
+    background-image: url(appointment_header.png);
+    background-size: cover;
+    background-position: center;
+}
+
+
+.breadcrumb-div{
+    width: 100%;
+    padding: 40px;
+    padding-left: 100px;
+}
+.breadcrumb-div p a, .breadcrumb-div p {
+    font-size:16px;
+    text-decoration:none;
+    color:#243d54;
+}
+.breadcrumb-div p a:hover {
+    text-decoration: underline;
+}
+.selected-page{
+    font-weight: 700;
+}
+
+
+/* Banner-Text-Division */
+.banner-text{
+    width: 100%;
+    padding: 40px;
+    padding-left: 100px;
+}
+
+/* Text Inside Banner */
+.page-title{
+    font-size: 50px;
+    font-weight: 700;
+    color: #34597a;
+}
+.page-text{
+    font-size: 17px;
+    padding-top:12px;
+    color: #23668b;
+}
+
+
+
+/* Buttons-Division */
+.but-div{
+    margin: 30px auto;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    width: 280px;
+    height:85px;
+    padding: 15px 25px 15px 70px;
+    margin: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18.4px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+.hover-effect:hover .btn1 {
+    background-image: url(doctor-white.png);
+    background-color:#0fa3a8;
+    color: white;
+    border: none;
+}
+.hover-effect:hover .btn2 {
+    background-image: url(health-screening-white.png);
+    background-color:#0fa3a8;
+    color: white;
+    border: none;
+}
+.hover-effect:hover .btn3 {
+    background-image: url(enquiry-white.png);
+    background-color:#0fa3a8;
+    color: white;
+    border: none;
+    
+}
+.btn1{
+    background-image: url(doctor.png);
+    background-size: 70px 70px;
+    background-position-x: 10px;
+    background-position-y: 8px;
+    background-repeat: no-repeat;
+}
+.btn2{
+    padding-right: 20px;
+    background-image: url(health-screening.png);
+    background-size: 65px 65px;
+    background-position-x: 15px;
+    background-position-y: 8px;
+    background-repeat: no-repeat;
+}
+.btn3{
+    padding-right: 60px;
+    background-image: url(enquiry.png);
+    background-size: 65px 65px;
+    background-position-x: 10px;
+    background-position-y: 8px;
+    background-repeat: no-repeat;
+}
+.selected1{
+    background-image: url(doctor-white.png);
+    background-size: 70px 70px;
+    background-position-x: 10px;
+    background-position-y: 8px;
+    background-repeat: no-repeat;
+    background-color: #0fa3a8;
+    border: #0fa3a8;
+    font-weight: 700;
+    color: white;
+}
+.selected2{
+    border: #0fa3a8;
+    background-image: url(health-screening-white.png);
+    background-size: 70px 70px;
+    background-position-x: 10px;
+    background-position-y: 8px;
+    background-repeat: no-repeat;
+    background-color: #0fa3a8;
+    font-weight: 700;
+    color: white;
+}
+.selected3{
+    border: #0fa3a8;
+    background-image: url(enquiry-white.png);
+    background-size: 70px 70px;
+    background-position-x: 10px;
+    background-position-y: 8px;
+    background-repeat: no-repeat;
+    background-color: #0fa3a8;
+    font-weight: 700;
+    color: white;
+}
+
+
+/* Doctor Appointment Form Title */
+.appointment-div, .patient-div, .enquiry-div{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 30px 85px 65px 50px;
+    width: 85%;
+    background-color: #c1ebef;
+    border-radius: 10px;
+    font-size: 15px;
+}
+.appointment-div img, .patient-div img{
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+}
+.appointment-div h2, .patient-div h2{
+    display: block;
+    font-size: 40px;
+    line-height: 50px;
+    color: #34597a;
+}
+
+
+/* Doctor Appoinmtment Form First Row */
+.appointment-div .first-row{
+    margin-top: 20px;
+}
+.first-row .select-speciality, 
+.first-row .select-doctor{
+    display: inline-block;
+    height: 45px;
+    border: 1px solid rgba(79, 54, 54, 0.3);
+    padding:10px;
+    font-size:15px;
+}
+
+.appointment-div .first-row .select-speciality{
+    float: left;
+    width:49%;
+}
+.appointment-div .first-row .select-doctor{
+    width: 49%;
+    float: right;
+}
+.clearfix::after,
+.clearfix::before{
+    content: '';
+    display: table;
+}
+.clearfix::after{
+    clear: both;
+}
+
+/* Doctor Appoinmtment Form Second Row */
+.appointment-div .second-row{
+    margin-top: 20px;
+}
+.appointment-div .second-row textarea{
+    padding:10px;
+    border: 1px solid rgba(79, 54, 54, 0.3);
+    /* color: #a6a6a6; */
+    font-size:15px;
+}
+.second-row textarea {
+    width:100%;
+}
+
+
+/* Doctor Appoinmtment Form Third Row */
+.appointment-div .third-row p{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+.appointment-div .fourth-row input[type="date"],  
+.appointment-div .fourth-row input[type="text"], 
+.appointment-div .fourth-row select {
+    width:49%;
+    height: 45px;
+    padding:10px;
+    padding-right: 25px;
+    font-size:15px;
+    cursor: default;
+}
+.appointment-div .date {
+    float: left;
+}
+.appointment-div .time {
+    float: right;
+}
+
+
+/* Patient Division */
+.patient-div input[type= "text"]{
+    margin-top: 20px;
+    height: 45px;
+    width: 100%;
+    padding:10px;
+    font-size:15px;
+    border: 1px solid rgba(79, 54, 54, 0.3);
+}
+
+/* Second Row */
+.patient-div .second-row input[type="date"], .patient-div .second-row .date,
+.patient-div .second-row input[type="text"]{
+    display: inline-block;
+    height: 45px;
+    padding:10px;
+    font-size:15px;
+}
+.patient-div .second-row input[type="date"], .patient-div .second-row .date {
+    margin-top: 20px;
+    float: left !important;
+    width:49%;
+}
+.patient-div .second-row input[type="text"] {
+    width: 49%;
+    float: right;
+    cursor:default;
+}
+
+.clearfix::after,
+.clearfix::before{
+    content: '';
+    display: table;
+}
+.clearfix::after{
+    clear: both;
+}
+
+/* Third Row */
+.patient-div .third-row input[type="email"], 
+.patient-div .third-row input[type="text"]{
+    display: inline-block;
+    height: 45px;
+    border: 1px solid rgba(79, 54, 54, 0.3);
+    padding:10px;
+    font-size:15px;
+}
+.patient-div .third-row input[type="email"]{
+    margin-top: 20px;
+    float: left;
+    width:49%;
+}
+.patient-div .third-row input[type="text"]{
+    width: 49%;
+    float: right;
+}
+.clearfix::after,
+.clearfix::before{
+    content: '';
+    display: table;
+}
+.clearfix::after{
+    clear: both;
+}
+
+/* Checkboxes */
+.patient-div p a{
+    text-decoration: none;
+    color: #2963df;
+}
+
+/* Make Appointment Button Division */
+.submit-div{
+    display: flex;
+    margin: 10px auto;
+    width: 100%;
+    justify-content: center;
+}
+.submit-div .make-appointment-button{
+    margin-bottom: 55px;
+    width: 35%;
+    padding: 15px 35px;
+    border-radius: 10px;
+    border: #0fa3a8;
+    background-color: #0fa3a8;
+    color: white;
+    font-weight: 700;
+    font-size: 25px;
+}
+.submit-div .make-appointment-button:hover{
+    background-color: #0D7376;
+    cursor: pointer;
+}
+
+/* Enquiry Form */
+.enquiry-div {
+    padding-right: 50px;
+}
+.enquiry-box {
+    display: flex;
+}
+.enquiry-formLeft, .enquiry-formRight {
+    flex: 1;
+}
+.enquiry-formName, .enquiry-formLeft input[type="text"], .enquiry-formRight textarea {
+    padding: 10px;
+    font-size: 15px;
+    width:98%;
+}
+.enquiry-formRight {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+}
+.enquiry-formRight textarea {
+    align-self: flex-end;
+    height: 100%;
+    resize: vertical;
+    padding-bottom: 37px;
+    font-size: 15px;
+}
+.enquiry-formName {
+    width:100%;
+}
+.enquiry-div p a{
+    text-decoration: none;
+    color: #2963df;
+}
+.enquiry-formRight label {
+    display: block;
+    float:left;
+    margin-top: -10px;
+    margin-left: 15px;
+}
+.enquiry-div input[type="checkbox"], .patient-div input[type="checkbox"] {
+    margin-bottom:10px;
+}
+
+ 
+
+/* doctor appointment , health screening, enquiry, enquiry1, enquiry2 */
+.patient-div p a:hover, .enquiry-div p a:hover, .profile-details a:hover {
+    text-decoration:underline;
+}
+
+.error-wrapper {
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+
+.enquiry-div .error {
+    color: red;
+    font-style:italic;
+    padding:10px;
+}
+
+.contentwarpper .error {
+    float: left;
+    width:49%;
+    color: red;
+    font-style:italic;
+}
+
+.show-error {
+    display: block;
+    color: red;
+}
+
+.contentwarpper .num{
+    float: right;
+    width: 49%;
+    padding: 0;
+}
+
+/* Find A Doctor Page */
+
+/* Search Bar */
+.search-bar-div {
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+    width:77%;
+    position:relative;
+    top:-30px;
+}
+.search-bar-div .bar-left, .search-bar-div .bar-right {
+    flex:1;
+    display:flex;
+}
+.search-bar-div .dropdown a:hover {
+    background-color: #f1f1f1;
+}
+.search-bar-div .bar-right .search-bar {
+    flex:1;
+    display:flex;
+}
+.search-bar-div .bar-right .search-input {
+    padding-left:20px;
+    width:180px;
+    flex:1;
+    font-size:18px;
+    border:1px solid #0fa3a8;
+}
+.search-bar-div .bar-right .search-button {
+    padding:5px 5px;
+    flex:1;
+    font-size:21px;
+    background-image:url(search-white.png);
+    background-size: 35px 35px;
+    background-position-x: 60px;
+    background-position-y: 28px;
+    background-repeat: no-repeat;
+    border:1px solid #0fa3a8;
+    background-color:#0fa3a8;
+    font-weight:bold;
+    color:#FFFFFF;
+}
+.search-bar-div .bar-right .search-button:hover {
+    cursor:pointer;
+}
+.search-bar-div form {
+    width: 100%;
+}
+.search-bar-div .homepage-dropdown {
+    position:relative;
+    display:inline-block;
+    padding:33px;
+    padding-left:20px;
+    border:1px solid #0fa3a8;
+    flex:1;
+    font-size:18px;
+    background-color:#FFFFFF;
+}
+
+
+/*Image Title*/
+.find-doc-image-and-title {
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+    height: 500px;
+    background-image:url(find-doctor.png);
+    background-size:cover;
+    background-position:center;
+}
+
+/*Div and Tables*/
+.table-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 77%;
+    justify-content: center;
+}
+.row {
+    display: flex;
+}
+.cell {
+    position:relative;
+    flex: 1;
+    border: none;
+    background-color:#004b91;
+    margin:6px;
+    width:auto;
+    height: 260px; /*380px*/
+    padding: 20px;
+    padding-top:100px;
+    font-size: 40px;
+    text-align: center;
+    overflow:hidden;
+}
+.cell:first-child {
+    margin-left: 0;
+}
+.cell:last-child {
+    margin-right: 0;
+}
+.load-more {
+    text-align:center;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size:32px;
+    text-decoration: underline;
+    color: #192ddf;
+    font-style:italic;
+    padding-top: 30px;
+}
+.spacing {
+    padding-bottom:150px;
+}
+.hidden {
+    display:none;
+}
+.table-text {
+    justify-content:center;
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+.table-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    opacity: 0.8;
+    filter:brightness(50%);
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+.anesthesiology {
+    background-image: url(anesthesiology.png);
+}
+.anesthesiology:hover, .table-text:hover, .cardiology:hover, .dermatology:hover, .emergency-med:hover, .endocrinology:hover, .gastroenterology:hover, .general-surgery:hover, .hematology:hover, .neurology:hover, .plumonology:hover, .radiology:hover, .urology:hover {
+    transform: scale(1.2);
+}
+.cardiology {
+    background-image: url(cardiology.png);
+}
+.dermatology {
+    background-image: url(dermatology.png);
+}
+.emergency-med {
+    background-image: url(emergency-med.png);
+}
+.endocrinology {
+    background-image: url(endocrinology.png);
+}
+.gastroenterology {
+    background-image: url(gastroenterology.png);
+}
+.general-surgery {
+    background-image: url(general-surgery.png);
+}
+.hematology {
+    background-image: url(hematology.png);
+}
+.neurology {
+    background-image: url(neurology.png);
+}
+.plumonology {
+    background-image: url(plumonology.png);
+}
+.radiology {
+    background-image: url(radiology.png);
+}
+.urology {
+    background-image: url(urology.png);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer {
+    margin-top: 50px;
+    width: 100%;
+    background: #EDEDED;
+}
+
+.main-content {
+    display: flex;
+}
+
+.main-content .box {
+    flex-basis: 50%;
+    padding: 10px 20px;
+}
+
+.box h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.box .content {
+    margin: 20px 0 0 0;
+    position: relative;
+}
+
+.box .content h4::before {
+    position: absolute;
+    content: '';
+    top: -10px;
+    height: 2px;
+    width: 100%;
+}
+
+.box .content:after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 15%;
+    background: #1d9aa8;
+    top: -10px;
+    margin-bottom: 35px;
+}
+
+.left h4 {
+    margin-top: 20px;
+}
+
+.left .content ul {
+    list-style: none !important;
+    padding-top: 15px;
+}
+
+.left .content ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.left .content ul li a {
+	text-transform: capitalize;
+	color: #3c3c3c;
+	text-decoration: none !important;
+	font-weight: 500;
+	display: block;
+	transition: all 0.3s ease;
+}
+
+.left .content ul li a:hover {
+    color: #0022ff;
+    padding-left: 8px;
+}
+
+.center h4 {
+    margin-top: 20px;
+}
+
+.center .content .place {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    text-align: left;
+}
+
+.center .content .place img {
+    width: 20px;
+    height: 20px;
+}
+
+.center .content .place .text {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.center .content .phone {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.center .content .phone img {
+    width: 20px;
+    height: 20px;
+}
+
+.center .content .phone .text {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.center .content .phone .text a:hover {
+    padding-left: 10px;
+    display: block;
+	transition: all 0.3s ease;
+    color: #0022ff;
+}
+
+.center .content .whatsapp {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.center .content .whatsapp img {
+    width: 20px;
+    height: 20px;
+}
+
+.center .content .whatsapp .text {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.center .content .whatsapp .text a:hover {
+    padding-left: 10px;
+    display: block;
+	transition: all 0.3s ease;
+    color: #0022ff;
+}
+
+.center .content .Emergency {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.center .content .Emergency img {
+    width: 20px;
+    height: 20px;
+}
+
+.center .content .Emergency .text {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.center .content .Emergency .text a:hover{
+    padding-left: 10px;
+    display: block;
+	transition: all 0.3s ease;
+    color: #0022ff;
+}
+
+.center .content .fax {
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.center .content .fax img {
+    width: 20px;
+    height: 20px;
+}
+
+.center .content .fax .text {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+
+.center .content .fax .text a:hover {
+    padding-left: 10px;
+    display: block;
+	transition: all 0.3s ease;
+    color: #0022ff;
+}
+
+.center .content .Email {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.center .content .Email img {
+    width: 20px;
+    height: 20px;
+}
+
+.center .content .Email .text a {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.center .content .Email .text a:hover {
+    padding-left: 10px;
+    display: block;
+	transition: all 0.3s ease;
+    color: #0022ff;
+}
+
+.right h4 {
+    margin-top: 20px;
+}
+
+.right .content {
+    padding-top: 15px;
+}
+
+.right .content .day {
+    font-weight: 500;
+    color: #4EB1B4;
+}
+
+.right .content .social-media a {
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: #ffffff;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #4EB1B4;
+	transition: all 0.5s ease;
+}
+
+.right .content .social-media {
+    padding-top: 15px;
+}
+
+.right .content .social-media a:hover {
+	color: #ffffff;
+	background-color: #4EB1B4;
+}
+
+.right .content .social-media a:hover i.fa-facebook-f:before {
+    color: #ffffff;
+}
+
+.right .content .social-media a:hover i.fa-twitter:before {
+    color: #ffffff;
+}
+
+.right .content .social-media a:hover i.fa-instagram:before {
+    color: #ffffff;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+}
+
+/* Responsive media queries */
+@media screen and (max-width: 600px) {
+    /* Adjust the styles for screens up to 600px */
+  
+    /* Align the details section in vertical */
+    .why-choose-us .details {
+      flex-direction: column;
+    }
+  
+    /* Set the width of the boxes to 100% */
+    .why-choose-us .left-box,
+    .why-choose-us .right-box {
+      width: 100%;
+    }
+  
+    /* Align the about us section in vertical */
+    .about-us .about-us-container {
+      flex-direction: column;
+    }
+  
+    /* Set the width of the about us boxes to 100% */
+    .about-us .left-aboutus,
+    .about-us .right-aboutus {
+      width: 100%;
+    }
+  
+    /* Adjust the header styles */
+    .header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    /* Adjust the logo styles */
+    .logo {
+      margin: 10px 0;
+    }
+  
+    /* Adjust the logo image height */
+    .logo img {
+      max-height: 50px;
+    }
+  
+    /* Adjust the navigation styles */
+    .navigation {
+        text-align: center;
+        position: static;
+        margin: 10px auto;
+    }
+  
+    /* Adjust the navigation list item styles */
+    .navigation li {
+      display: block;
+      margin: 0 10px;
+    }
+  
+    /* Adjust the make appointment section styles */
+    .make-appointment {
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+  
+    /* Adjust the make appointment list item styles */
+    .make-appointment li {
+      display: inline-block;
+      align-items: center;
+    }
+  
+    /* Adjust the main content styles */
+    .main-content {
+      flex-direction: column;
+    }
+  
+    /* Adjust the box styles */
+    .box {
+      flex-basis: 100%;
+    }
+  
+    /* Adjust the content heading styles */
+    .content h4::before {
+      top: -5px;
+    }
+  
+    /* Adjust the content after pseudo-element styles */
+    .content:after {
+      margin-bottom: 20px;
+    }
+  
+    /* Add any other necessary CSS code for responsiveness */
+}

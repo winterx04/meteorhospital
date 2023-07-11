@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Find Doctor</title>
+        <meta name="description" content="Find experienced doctors at Meteor Hospital. Our comprehensive 'Find a Doctor' service helps you connect with expert physicians in cardiology, neurology, orthopedics, and more. Discover the right doctor for your healthcare needs and receive personalized treatment at our state-of-the-art facility. Trust Meteor Hospital for exceptional medical care and specialized expertise.">
+        <meta name="keywords" content="Meteor Hospital, hospital, medical services, healthcare, find a doctor, search doctor">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="ASSIGNMENT2.css">
+        <link rel="icon" type="image/x-icon" href="meteor.ico">
+        <script src="https://kit.fontawesome.com/0e22e4bdcf.js" crossorigin="anonymous"></script>
+        <script>
+            window.addEventListener( "pageshow", function ( event ) {
+                var historyTraversal = event.persisted || ( typeof window.performance != "undefined" && window.performance.navigation.type === 2 );
+                    if ( historyTraversal ) {
+                        window.location.reload();
+                    }
+                });
+          </script>
+    </head>
+
+    <body>
+        <!--Header-->
+        <nav>
+            <div class="header">
+                <div class="navigation-toggle"></div>
+                <div class="logo">
+                    <a href="index.html">
+                    <img src="meteor_logo.png" alt="Hospital Logo">
+                    </a>
+                </div>
+
+                <ul class="navigation">
+                    <li><a href="index.html#aboutus">ABOUT US</a></li> 
+                    <li><a href="find-doctor.html">FIND A DOCTOR</a></li> 
+                    <li><a href="enquiry.html">ENQUIRY</a></li> 
+                    <li><a href="health_hub.html">HEALTH HUB</a></li> 
+                    <li><a href="#contactus">CONTACT US</a></li> 
+                </ul>
+
+                <ul class="make-appointment">
+                    <li><a href="doctor_appointment.html">MAKE APPOINTMENT</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <script>
+            window.addEventListener("scroll", function() {
+                var nav = document.querySelector("nav");
+                if (window.scrollY > 0) {
+                    nav.classList.add("scrolled");
+                } else {
+                    nav.classList.remove("scrolled");
+                }
+            });
+        </script>
+
+        <!--Image Title-->
+        <div class="find-doc-image-and-title">
+            <div class="breadcrumb-div">
+                <p class="breadcrumb"><a href="index.html">HOME</a> &nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp; <span class="selected-page">FIND A DOCTOR</span></p>
+            </div>
+            <div class="banner-text">
+                <p class="page-title">FIND A DOCTOR</p>
+                <p class="page-text">A professional team consists of skilled doctors <br>and specialists with extensive expertise, ready <br>to provide personalized consultations and <br>treatment plans that cater to your specific <br>requirements.</p>
+            </div>
+        </div>
+
+        <!--Search Bar-->
+        <div class="search-bar-div">
+            <form class="search-bar-div">
+            <!--Left Content-->
+            <div class="bar-left">
+                <!--All Specialties Dropdown Menu-->
+                <select  onChange="populate('specialty','doc');" class="homepage-dropdown col-md-6 col-9" id="specialty">
+                    <option selected value ="">ALL SPECIALTIES</option> 
+                   <option value="Anesthesiology">Anesthesiology</option>
+                   <option value="Cardiology">Cardiology</option>
+                   <option value="Dermatology">Dermatology</option>
+                   <option value="Emergency Medicine">Emergency Medicine</option>
+                   <option value="Endocrinology">Endocrinology</option>
+                   <option value="Gastroenterology">Gastroenterology</option>
+                   <option value="General Surgery">General Surgery</option>
+                   <option value="Hematology">Hematology</option>
+                   <option value="Neurology">Neurology</option>
+                   <option value="Plumonology">Plumonology</option>
+                   <option value="Radiology">Radiology</option>
+                   <option value="Urology">Urology</option>
+                 </select>
+            
+                <!--Find A Doctor Dropdown Menu-->
+                <select class="homepage-dropdown col-md-6 col-9" id="doc">
+                    <option id="select" selected>FIND A DOCTOR</option>
+                    <option value="Dr. Alaina Silman">Dr. Alaina Silman</option>
+                    <option value="Dr. Benjamin Thompson">Dr. Benjamin Thompson	</option>
+                    <option value="Dr. Beverly Lulewicz">Dr. Beverly Lulewicz</option>
+                    <option value="Dr. Blakely Betenbaugh">Dr. Blakely Betenbaugh</option>
+                    <option value="Dr. Briana Rav">Dr. Briana Rav</option>
+                    <option value="Dr. Catherine Sanderford">Dr. Catherine Sanderford</option>
+                    <option value="Dr. Cecilia Halpert">Dr. Cecilia Halpert</option>
+                    <option value="Dr. Chris Hosteller">Dr. Chris Hosteller</option>
+                    <option value="Dr. Clyde Guhl">Dr. Clyde Guhl</option>
+                    <option value="Dr. Cohen Lieder">Dr. Cohen Lieder</option>
+                    <option value="Dr. Corbin Fongvongsa">Dr. Corbin Fongvongsa</option>
+                    <option value="Dr. Damian Toohey">Dr. Damian Toohey</option>
+                    <option value="Dr. Declan Decaen">Dr. Declan Decaen</option>
+                    <option value="Dr. Destiny Nicks">Dr. Destiny Nicks</option>
+                    <option value="Dr. Dora Kerkel">Dr. Dora Kerkel</option>
+                    <option value="Dr. Edwin Ligler">Dr. Edwin Ligler</option>
+                    <option value="Dr. Ella Serenil">Dr. Ella Serenil</option>
+                    <option value="Dr. Elmer Illas">Dr. Elmer Illas</option>
+                    <option value="Dr. Genesis Lever">Dr. Genesis Lever</option>
+                    <option value="Dr. Geraldine Buttrick">Dr. Geraldine Buttrick</option>
+                    <option value="Dr. Giovanni Melcher">Dr. Giovanni Melcher</option>
+                    <option value="Dr. Helen Sheedy">Dr. Helen Sheedy</option>
+                    <option value="Dr. Herbert Jodha">Dr. Herbert Jodha</option>
+                    <option value="Dr. Jace Morden">Dr. Jace Morden</option>
+                    <option value="Dr. Jessie Gelvin">Dr. Jessie Gelvin</option>
+                    <option value="Dr. John Connerstone">Dr. John Connerstone</option>
+                    <option value="Dr. Johnnie Safer">Dr. Johnnie Safer</option>
+                    <option value="Dr. Juliette Mccartha">Dr. Juliette Mccartha</option>
+                    <option value="Dr. Kenneth Trumper">Dr. Kenneth Trumper</option>
+                    <option value="Dr. Laila Buote">Dr. Laila Buote</option>
+                    <option value="Dr. Lauren Shute">Dr. Lauren Shute</option>
+                    <option value="Dr. Lith Verhen">Dr. Lith Verhen</option>
+                    <option value="Dr. Mackenzie Vasey">Dr. Mackenzie Vasey</option>
+                    <option value="Dr. Mirim Distar">Dr. Mirim Distar</option>
+                    <option value="Dr. Phillip Mcglothin">Dr. Phillip Mcglothin</option>
+                    <option value="Dr. Rodrigo Prezioso">Dr. Rodrigo Prezioso</option>
+                    <option value="Dr. Samantha Collins">Dr. Samantha Collins</option>
+                    <option value="Dr. Skylar Strawser">Dr. Skylar Strawser</option>
+                    <option value="Dr. Stephanie Frandeen">Dr. Stephanie Frandeen</option>
+                    <option value="Dr. Summer Vasile">Dr. Summer Vasile</option>
+                    <option value="Dr. Timothy Eggleston">Dr. Timothy Eggleston</option>
+                    <option value="Dr. Tristen Muhs">Dr. Tristen Muhs</option>
+                    <option value="Dr. Ty Mangieri">Dr. Ty Mangieri</option>
+                    <option value="Dr. Verna Lonn">Dr. Verna Lonn</option>
+                    <option value="Dr. Willie Goudy">Dr. Willie Goudy</option>
+                  </select>
+
+            </div>
+            
+            <!--Right content-->
+            <div class="bar-right">
+
+                <!--Search Bar-->
+                <div class="search-bar">
+
+                    <input type="text" class="search-input" id="doctorName" placeholder="SYMPTOMS & KEYWORDS">
+                    <input id="btnCallURL" class = "search-button" type="button" value="SEARCH">
+
+                </div>
+
+            </div>
+            
+            <script>
+                function populate(s1,s2){
+                    var specialty = document.getElementById(s1);
+                    var doc = document.getElementById(s2);
+
+
+                    var select = document.getElementById(s2).options.length;
+                    for (var i = select; i >0;i-- ) {
+                        document.getElementById(s2).options.remove(i);
+                        console.log(i);
+                    }
+                    document.getElementById('select').selected='selected';
+                    var optionArray=[];
+                    if(specialty.value == "Anesthesiology"){
+                        optionArray = ["dr. catherine sanderford|Dr. Catherine Sanderford","dr. laila buote|Dr. Laila Buote","dr. verna lonn|Dr. Verna Lonn"];
+                    } 
+                    else if(specialty.value == "Cardiology"){
+                    optionArray = ["dr. genesis lever|Dr. Genesis Lever","dr. tristen muhs|Dr. Tristen Muhs"];
+                    }
+                    else if(specialty.value == "Dermatology"){
+                    optionArray = ["dr. herbert jodha|Dr. Herbert Jodha","dr. mackenzie vasey|Dr. Mackenzie Vasey","dr. timothy eggleston|Dr. Timothy Eggleston","dr. willie goudy|Dr. Willie Goudy"];
+                    }
+                    else if(specialty.value == "Emergency Medicine"){
+                    optionArray = ["dr. damian toohey|Dr. Damian Toohey","dr. dora kerkel|Dr. Dora Kerkel",
+                                    "dr. ella serenil|Dr. Ella Serenil","dr. kenneth trumper|Dr. Kenneth Trumper",
+                                    "dr. lith verhen|Dr. Lith Verhen"];
+                    }
+                    else if(specialty.value == "Endocrinology"){
+                    optionArray = ["dr. blakely betenbaugh|Dr. Blakely Betenbaugh","dr. clyde guhl|Dr. Clyde Guhl","dr. rodrigo prezioso|Dr. Rodrigo Prezioso"];
+                    }
+                    else if(specialty.value == "Gastroenterology"){
+                    optionArray = ["dr. benjamin thompson|Dr. Benjamin Thompson","dr. samantha collins|Dr. Samantha Collins"];
+                    }
+                    else if(specialty.value == "General Surgery"){
+                        optionArray = ["dr. beverly lulewicz|Dr. Beverly Lulewicz","dr. briana rav|Dr. Briana Rav",
+                                        "dr. chris hosteller|Dr. Chris Hosteller","dr. cohen lieder|Dr. Cohen Lieder",
+                                        "dr. destiny nicks|Dr. Destiny Nicks","dr. giovanni melcher|Dr. Giovanni Melcher",
+                                        "Dr. jessie gelvin|Dr. Jessie Gelvin","dr. lauren shute|Dr. Lauren Shute"];
+                    }
+                    else if(specialty.value == "Hematology"){
+                    optionArray = ["dr. edwin ligler|Dr. Edwin Ligler","dr. geraldine buttrick|Dr. Geraldine Buttrick"];
+                    }
+                    else if(specialty.value == "Neurology"){
+                    optionArray = ["dr. alaina silman|Dr. Alaina Silman","dr. john connerstone|Dr. John Connerstone","dr. juliette mccartha|Dr. Juliette Mccartha"];
+                    }
+                    else if(specialty.value == "Plumonology"){
+                    optionArray = ["dr. elmer illas|Dr. Elmer Illas","dr. jace morden|Dr. Jace Morden",
+                                    "dr. juliette mccartha|Dr. Juliette Mccartha","dr. phillip mcglothin|Dr. Phillip Mcglothin",
+                                    "dr. stephanie frandeen|Dr. Stephanie Frandeen"];
+                    }
+                    else if(specialty.value == "Radiology"){
+                    optionArray = ["dr. cecilia halpert|Dr. Cecilia Halpert","dr. mirim distar|Dr. Mirim Distar",
+                                    "dr. skylar strawser|Dr. Skylar Strawser","dr. summer vasile|Dr. Summer Vasile",
+                                    "dr. ty mangieri"];
+                    }
+                    else if(specialty.value == "Urology"){
+                    optionArray = ["dr. corbin fongvongsa|Dr. Corbin Fongvongsa","dr. declan decaen|Dr. Declan Decaen",
+                                    "dr. helen sheedy|Dr. Helen Sheedy","dr. johnnie safer|Dr. Johnnie Safer",
+                                    "dr. rodrigo prezioso|Dr. Rodrigo Prezioso"];
+                    }
+
+                    for(var option in optionArray){
+                        var pair = optionArray[option].split("|");
+                        var newOption = document.createElement("option");
+                        newOption.value = pair[0];
+                        newOption.innerHTML = pair[1];
+                        doc.options.add(newOption);
+                    }
+                }
+                document.getElementById('btnCallURL').onclick = function() { 
+                    var specialtyObj = document.getElementById('specialty');
+                    var docObj = document.getElementById('doc');
+                
+                    var specialtyValue = specialtyObj.options[specialtyObj.selectedIndex].value;
+                    var docValue = docObj.options[docObj.selectedIndex].value;
+                
+                    jsCallUrl(specialtyValue, docValue);
+                }
+                
+                function jsCallUrl(specialtyValue, docValue){
+                
+                    var pageUrl = "";
+                
+                    switch (specialtyValue){
+                        case "Anesthesiology":
+                            switch (docValue){
+                            case "dr. catherine sanderford":
+                                pageUrl = "#";
+                                break;
+                            case "dr. laila buote":
+                                pageUrl = "#";
+                                break;
+                            case "dr. verna lonn":
+                                pageUrl = "#";
+                                break;         
+                          }
+                          break;
+                        case "Cardiology":
+                            switch (docValue){
+                            case "dr. genesis lever":
+                                pageUrl = "#";
+                                break;
+                            case "dr. tristen muhs":
+                                pageUrl = "#";
+                                break;
+                          }
+                          break;
+                        case "Dermatology":
+                            switch (docValue){
+                            case "dr. herbert jodha":
+                                pageUrl = "#"; 
+                                break;
+                            case "dr. mackenzie vasey":
+                                pageUrl = "#";
+                                break;
+                            case "dr. timothy eggleston":
+                                pageUrl = "#";
+                                break;
+                            case "dr. willie goudy":
+                                pageUrl = "#";         
+                          }
+                          break;
+                        case "Emergency Medicine":
+                            switch (docValue){
+                            case "dr. damian toohey":
+                                pageUrl = "#"; 
+                                break;
+                            case "dr. dora kerkel":
+                                pageUrl = "#";
+                                break;
+                            case "dr. ella serenil":
+                                pageUrl = "#";
+                                break; 
+                            case "dr. kenneth trumper":
+                                pageUrl = "#";
+                                break;  
+                            case "dr. lith verhen":
+                                pageUrl = "#";
+                                break;     
+                          }
+                          break;
+                        case "Endocrinology":
+                            switch (docValue){
+                            case "dr. blakely betenbaugh":
+                                pageUrl = "#";
+                                break;
+                            case "dr. clyde guhl":
+                                pageUrl = "#";
+                                break;
+                            case "dr. rodrigo prezioso":
+                                pageUrl = "#";
+                                break; 
+                          }
+                          break;
+                        case "General Surgery":
+                            switch (docValue){
+                            case "dr. beverly lulewicz":
+                                pageUrl = "#";
+                                break;
+                            case "dr. briana rav":
+                                pageUrl = "#";
+                                break;
+                            case "dr. chris hosteller":
+                                pageUrl = "#";
+                                break;
+                            case "dr. cohen lieder":
+                                pageUrl = "#";
+                                break;
+                            case "dr. destiny nicks":
+                                pageUrl = "#";
+                                break;
+                            case "dr. giovanni melcher":
+                                pageUrl = "#";
+                                break;
+                            case "dr. jessie gelvin":
+                                pageUrl = "#";
+                                break;
+                            case "dr. lauren shute":
+                                pageUrl = "#";
+                                break;
+                          }
+                          break;
+                        case "Gastroenterology":
+                            switch (docValue){
+                            case "dr. benjamin thompson":
+                                pageUrl = "gastroenterology.html#benjamin";
+                                break;
+                            case "dr. samantha collins":
+                                pageUrl = "gastroenterology.html#samantha";
+                            break;            
+                          }
+                          break;
+                        case "Hematology":
+                            switch (docValue){
+                            case "dr. edwin ligler":
+                                pageUrl = "#";
+                                break;
+                            case "dr. geraldine buttrick":
+                                pageUrl = "#";
+                                break;
+                          }
+                          break;
+                        case "Neurology":
+                            switch (docValue){
+                            case "dr. alaina silman":
+                                pageUrl = "#";
+                                break;
+                            case "dr. john connerstone":
+                                pageUrl = "#";
+                                break;
+                            case "dr. juliette mccartha":
+                                pageUrl = "#";
+                                break;
+                          }
+                          break;
+                        case "Plumonology":
+                            switch (docValue){
+                            case "dr. elmer illas":
+                                pageUrl = "#";
+                                break;
+                            case "dr. jace morden":
+                                pageUrl = "#";
+                                break;
+                            case "dr. juliette mccartha":
+                                pageUrl = "#";
+                                break;
+                            case "dr. phillip mcglothin":
+                                pageUrl = "#";
+                                break;
+                            case "dr. stephanie frandeen":
+                                pageUrl = "#";
+                                break;
+                          }
+                          break;
+                        case "Radiology":
+                            switch (docValue){
+                            case "dr. cecilia halpert":
+                                pageUrl = "#";
+                                break;
+                            case "dr. mirim distar":
+                                pageUrl = "#";
+                                break;
+                            case "dr. skylar strawser":
+                                pageUrl = "#";
+                                break;
+                            case "dr. summer vasile":
+                                pageUrl = "#";
+                                break;
+                            case "dr. ty mangieri":
+                                pageUrl = "#";
+                                break;
+                          }
+                          break;
+                        case "Urology":
+                            switch (docValue){
+                            case "dr. corbin fongvongsa":
+                                pageUrl = "#";
+                                break;
+                            case "dr. declan decaen":
+                                pageUrl = "#";
+                                break;
+                            case "dr. helen sheedy":
+                                pageUrl = "#";
+                                break;
+                            case "dr. johnnie safer":
+                                pageUrl = "#";
+                                break;
+                            case "dr. rodrigo prezioso":
+                                pageUrl = "#";
+                                break;
+                          }
+                          break;
+                    }
+                
+                    
+                
+                    if (pageUrl != ""){
+                      location.href =  pageUrl;
+                    }
+                }
+                    </script>
+            </form>
+        </div>
+
+
+
+        <div class="table-container">
+
+            <div class="row">
+
+                <div class="cell" onclick="redirectAnes()">
+                    <div class="table-image anesthesiology"></div>
+                    <div class="table-text">Anesthesiology</div>
+                </div>
+                <div class="cell" onclick="redirectCardio()">
+                    <div class="table-image cardiology"></div>
+                    <div class="table-text glow-text" >Cardiology</div>
+                </div>
+                <div class="cell" onclick="redirectDerma()">
+                    <div class="table-image dermatology"></div>
+                    <div class="table-text">Dermatology</div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="cell" onclick="redirectEmerg()">
+                    <div class="table-image emergency-med"></div>
+                    <div class="table-text">Emergency<br>Medicine</div>
+                </div>
+                <div class="cell" onclick="redirectEndo()">
+                    <div class="table-image endocrinology"></div>
+                    <div class="table-text">Endocrinology</div>
+                </div>
+                <div class="cell" onclick="redirectGas()">
+                    <div class="table-image gastroenterology"></div>
+                    <div class="table-text">Gastroenterology</div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="cell" onclick="redirectGen()">
+                    <div class="table-image general-surgery"></div>
+                    <div class="table-text">General Surgery</div>
+                </div>
+                <div class="cell" onclick="redirectHema()">
+                    <div class="table-image hematology"></div>
+                    <div class="table-text">Hematology</div>
+                </div>
+                <div class="cell" onclick="redirectNeuro()">
+                    <div class="table-image neurology"></div>
+                    <div class="table-text">Neurology</div>
+                </div>
+
+            </div>
+
+            <!--Load more / Hidden contents-->
+            <div class="load-more" id="load-more-btn">Load More Specialties</div>
+            <div class="hidden">
+                <div class="row">
+                    <div class="cell" onclick="redirectPlumo()">
+                        <div class="table-image plumonology"></div>
+                        <div class="table-text">Plumonology</div>
+                    </div>
+                    <div class="cell" onclick="redirectRadio()">
+                        <div class="table-image radiology"></div>
+                        <div class="table-text">Radiology</div>
+                    </div>
+                    <div class="cell" onclick="redirectUro()">
+                        <div class="table-image urology"></div>
+                        <div class="table-text">Urology</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spacing"></div>
+
+            <script>
+                function redirectAnes() {
+                    location.replace("#")
+                }
+                function redirectCardio() {
+                    location.replace("#")
+                }
+                function redirectDerma() {
+                    location.replace("#")
+                }
+                function redirectEmerg() {
+                    location.replace("#")
+                }
+                function redirectEndo() {
+                    location.replace("#")
+                }
+                function redirectGas() {
+                    location.replace("gastroenterology.html")
+                }
+                function redirectGen() {
+                    location.replace("#")
+                }
+                function redirectHema() {
+                    location.replace("#")
+                }
+                function redirectNeuro() {
+                    location.replace("#")
+                }
+                function redirectPlumo() {
+                    location.replace("#")
+                }
+                function redirectRadio() {
+                    location.replace("#")
+                }
+                function redirectUro() {
+                    location.replace("#")
+                }
+
+                const loadMoreBtn = document.getElementById('load-more-btn');
+                const hiddenDiv = document.querySelector('.hidden');
+
+                loadMoreBtn.addEventListener('click', function() {
+                    hiddenDiv.classList.toggle('hidden');
+                    //loadMoreBtn.textContent = hiddenDiv.classList.contains('hidden') ? 'Load more specialties' : 'Hide specialties';
+                    loadMoreBtn.remove();
+                });
+                
+            </script>
+        </div>
+
+        
+        <!--Footer-->
+        <footer class="footer">
+            <div class="main-content">
+                <div class="left box">
+                    <h4>ABOUT US</h4>
+                    <div class="content">
+                        <ul>
+                            <li><a href="#">Disclaimer</a></li>
+                            <li><a href="#">Personal Data Protection</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                        </ul>
+                    
+                        <br>
+                        <br>
+
+                        <p>Copyright &copy; 2023 Meteor Hospital Sdn Bhd.<br>
+                            All Rights Reserved. Photos are for illustration purposes only<br>
+                            GGMKL 056/2023
+                        </p>
+                    </div>
+                </div>
+
+                <div class="center box">
+                    <h4>CONTACT US</h4>
+
+                    <div class="content">
+                        <div class="place">
+                            <img src="location.png" alt="Location">
+                            <span class="text">456 Meteor Street, Metropolis City, Star County, Galaxy 12345</span>
+                        </div>
+
+                        <br>
+                        
+                        <div class="phone">
+                            <img src="phone.png" alt="Main Line">
+                            <span class="text">Main Line:<br><a href="#">+1 (555) 123-4567</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="whatsapp">
+                            <img src="whatsapp.png" alt="Whatsapp">
+                            <span class="text">Whatsapp:<br><a href="#">+1 (555) 987-6543</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="Emergency">
+                            <img src="emergency.png" alt="Emergency">
+                            <span class="text">Emergency Department / Ambulance Service<br><a href="#">+1 (555) 392-2017</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="fax">
+                            <img src="fax.png" alt="Fax">
+                            <span class="text">Fax<br><a href="#">+1 (555) 439-1068</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="Email">
+                            <img src="email.png" alt="Email">
+                            <span class="text"><a href="mailto:contact@meteorhospital.com">contact@meteorhospital.com</a></span>
+                        </div>
+
+                        <br>
+                    </div>
+                </div>
+
+                <div class="right box">
+                    <h4>OFFICE HOURS</h4>
+
+                    <div class="content">
+                        <p class="day">Monday to Friday</p>
+                        <p>8:30am to 6:00pm</p>
+
+                        <br>
+
+                        <p class="day">Saturday</p>
+                        <p>8:30am to 2:00pm</p>
+
+                        <br>
+
+                        <p class="day">Closed on Sundays</p>
+                    </div>
+
+                    <br><br><br>
+
+                    <h4>FOLLOW US</h4>
+
+                    <div class="content">
+                        <div class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
